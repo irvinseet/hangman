@@ -1,3 +1,8 @@
+#https://www.practicepython.org/
+#you can use any dictionary of words you like
+#advanced: use sowpods.txt by Peter Norvig - http://norvig.com/ngrams/sowpods.txt
+#more friendly: use words.txt - https://github.com/Xethron/Hangman/blob/master/words.txt
+
 import random
 import sys
 
