@@ -6,7 +6,7 @@
 import random
 import sys
 
-#generate list to store results
+#generate list to store words
 l1 = []
 
 #read file
@@ -16,6 +16,8 @@ with open('words.txt', 'r') as f:
 
 #remove /n after every element
 l1 = [element.strip().upper() for element in l]
+
+#select a random word from the dictionary
 word = (random.choice(l1))
 
 #print display for user
@@ -27,26 +29,28 @@ guesslist = []
 for i in range(len(word)):
   guesslist.append('_')
 
-#guessprint converts guesslist into a string for easier display
+#guessprint converts guesslist into a string for better display
 guessprint = (' '.join(guesslist))
 print(guessprint)
 
+#initialise counter
 errorcounter = 0
 
 while True:
   print('You have ' + str(int(6 - errorcounter)) + ' lives')
   letter = input("Guess a letter: ").upper()
 
-  if letter == 'EXIT':
+  if letter == 'EXIT': #user can type 'exit' to stop playing
     sys.exit()
 
   if len(letter) != 1 or letter.isalpha() == False:
     print("Error: Type an aphabetical letter.")
-
+    
+#iterate through word to see if letter matches
   for i in range(len(word)):
     if letter == word[i]:
       guesslist[i] = letter #update the list
-      errorcounter -= 1# to neutralise the line below
+      errorcounter -= 1 # to neutralise the line below
       
   errorcounter += 1
 
@@ -58,7 +62,7 @@ while True:
     print("Game over! The word is " + word)
     sys.exit()
 
-#user guess all the letters
+#user guessed all the letters
   if guesslist.count('_') == 0:
     break
   
