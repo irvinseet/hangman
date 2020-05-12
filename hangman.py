@@ -24,12 +24,12 @@ word = (random.choice(l1))
 print('Welcome to Hangman!')
 print(str(len(word)) + ' letters')
 
-#generate a list to letters
+#use a list for easier manipulation
 guesslist = [] 
 for i in range(len(word)):
   guesslist.append('_')
 
-#guessprint converts guesslist into a string for better display
+#converts guesslist into a string for better display
 guessprint = (' '.join(guesslist))
 print(guessprint)
 
@@ -62,7 +62,7 @@ while True:
     print("Game over! The word is " + word)
     sys.exit()
 
-#user guessed all the letters
+#user guessed the word with <6 mistakes
   if guesslist.count('_') == 0:
     break
   
